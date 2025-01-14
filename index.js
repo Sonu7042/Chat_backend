@@ -22,7 +22,7 @@ app.get("/", (req, res)=>{
 
 
 app.use(cors({
-  origin: 'https://chat-backend-hazel-gamma.vercel.app', // Replace with your deployed React app URL
+  origin: 'https://chat-client-kohl.vercel.app', // Replace with your deployed React app URL
   methods: ['GET', 'POST'],
   credentials: true,
 }));
