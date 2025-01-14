@@ -12,16 +12,17 @@ app.get("/", (req, res)=>{
 })
 
 
-app.use(cors());
 
 
+// const io = new Server(server, {
+//   cors: {
+//     origin:"http://localhost:5173/"
+//   },
+// });
 
 
 const io = new Server(server, {
-  cors: {
-    origin: "https://chat-client-kohl.vercel.app", 
-    methods: ["GET", "POST"],       
-  },
+ 
 });
 
 
