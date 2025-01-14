@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { Server } from 'socket.io'
+import { Server } from 'socket.io';
 import http from 'http'
 
 const app = express();
@@ -11,11 +11,20 @@ app.get("/", (req, res)=>{
   res.send("working");
 })
 
+
+app.use(cors());
+
+
+
+
 const io = new Server(server, {
   cors: {
-    origin:"*"
+    origin: "https://chat-client-kohl.vercel.app", 
+    methods: ["GET", "POST"],       
   },
 });
+
+
 
 io.on("connection", (socket) => {
   console.log(socket.id)
