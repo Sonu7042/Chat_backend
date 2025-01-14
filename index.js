@@ -21,9 +21,11 @@ app.get("/", (req, res)=>{
 // });
 
 
-const io = new Server(server, {
- 
-});
+app.use(cors({
+  origin: 'https://chat-backend-hazel-gamma.vercel.app', // Replace with your deployed React app URL
+  methods: ['GET', 'POST'],
+  credentials: true,
+}));
 
 
 
