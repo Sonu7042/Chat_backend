@@ -6,9 +6,14 @@ import http from 'http'
 const app = express();
 const server = http.createServer(app);
 
+
+app.get("/", (req, res)=>{
+  res.send("working");
+})
+
 const io = new Server(server, {
   cors: {
-    origin:"https://chat-client-kohl.vercel.app"
+    origin:"*"
   },
 });
 
@@ -23,7 +28,7 @@ io.on("connection", (socket) => {
   socket.on("send_message", (data) => {
     console.log("send message data ", data)
     socket.to(data.room).emit("receive_message", data)
-  })
+  }) 
 
   socket.on("disconnect", () => {
     console.log("User Disconnected..", socket.id)
